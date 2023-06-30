@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: oyo-expense-tracker
+  sql:
+    init:
+      mode: always # !!IMPORTANT!! - set to `always` only if running SQL script
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        jdbc:
+          batch_size: 10
+        order_inserts: true
+    hibernate:
+      ddl-auto: create # !!IMPORTANT!! - set to `create` only if recreate tables, this will delete all data
+    show-sql: true
+    defer-datasource-initialization: true # set to `true` is a fix that will recreate table and run SQL script
+  servlet:
+    multipart:
+      max-file-size: 9999MB
+      max-request-size: 9999MB
+
+logging:
+  log-save-days: 5
+  file:
+    path: logs

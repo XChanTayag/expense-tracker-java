@@ -1,0 +1,12 @@
+services:
+  mysqldb_my:
+    image: mysql:8
+    restart: always
+    container_name: mysqldb_oyo
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=oyo
+      - MYSQL_USER=oyo_user
+      - MYSQL_PASSWORD=admin
