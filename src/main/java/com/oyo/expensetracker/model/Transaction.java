@@ -12,7 +12,9 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "expense")
-public class Expense extends AbstractAuditId{
+public class Transaction extends AbstractAuditId{
+
+    private String type;
 
     private BigDecimal amount;
 

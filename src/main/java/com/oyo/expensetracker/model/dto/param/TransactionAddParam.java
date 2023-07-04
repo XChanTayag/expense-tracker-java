@@ -12,15 +12,17 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExpenseAddParam {
+public class TransactionAddParam {
 
-    BigDecimal amount;
+    private String type;
 
-    String category;
+    private BigDecimal amount;
 
-    String account;
+    private String category;
 
-    String remarks;
+    private String account;
 
-    LocalDate date;
+    private String remarks;
+
+    private LocalDate date;
 }

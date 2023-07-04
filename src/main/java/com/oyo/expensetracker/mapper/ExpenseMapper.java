@@ -1,35 +1,35 @@
 package com.oyo.expensetracker.mapper;
 
-import com.oyo.expensetracker.model.Expense;
-import com.oyo.expensetracker.model.dto.ExpenseResponse;
-import com.oyo.expensetracker.model.dto.param.ExpenseAddParam;
-import com.oyo.expensetracker.model.dto.param.ExpenseUpdateParam;
+import com.oyo.expensetracker.model.Transaction;
+import com.oyo.expensetracker.model.dto.TransactionResponse;
+import com.oyo.expensetracker.model.dto.param.TransactionAddParam;
+import com.oyo.expensetracker.model.dto.param.TransactionUpdateParam;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ExpenseMapper {
 
-    public static ExpenseResponse toResponse(Expense expense){
-        ExpenseResponse expenseResponse = ExpenseResponse.builder().build();
+    public static TransactionResponse toResponse(Transaction transaction){
+        TransactionResponse transactionResponse = TransactionResponse.builder().build();
 
-        BeanUtils.copyProperties(expense, expenseResponse);
+        BeanUtils.copyProperties(transaction, transactionResponse);
 
-        return expenseResponse;
+        return transactionResponse;
     }
 
-    public static Expense toEntity(ExpenseAddParam expenseAddParam){
-        Expense expense = new Expense();
-        BeanUtils.copyProperties(expenseAddParam, expense);
+    public static Transaction toEntity(TransactionAddParam transactionAddParam){
+        Transaction transaction = new Transaction();
+        BeanUtils.copyProperties(transactionAddParam, transaction);
 
-        return expense;
+        return transaction;
     }
 
-    public static Expense toEntity(ExpenseUpdateParam expenseUpdateParam){
-        Expense expense = new Expense();
-        BeanUtils.copyProperties(expenseUpdateParam, expense);
+    public static Transaction toEntity(TransactionUpdateParam expenseUpdateParam){
+        Transaction transaction = new Transaction();
+        BeanUtils.copyProperties(expenseUpdateParam, transaction);
 
-        return expense;
+        return transaction;
     }
 
 }

@@ -9,9 +9,11 @@ import java.util.UUID;
 
 @Data
 @Builder
-public class ExpenseResponse {
+public class TransactionResponse {
 
     private UUID id;
+
+    private String type;
 
     private BigDecimal amount;
 
