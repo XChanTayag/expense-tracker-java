@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -24,7 +25,8 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public List<TransactionResponse> getAll() {
         return expenseRepository.findAll().stream()
-                .map(ExpenseMapper::toResponse).toList();
+                .map(ExpenseMapper::toResponse)
+                .sorted(Comparator.comparing(TransactionResponse::getDate).reversed()).toList();
     }
 
     @Override
