@@ -8,7 +8,7 @@ spring:
     name: oyo-expense-tracker
   sql:
     init:
-      mode: always # !!IMPORTANT!! - set to `always` only if running SQL script
+      mode: never  # !!IMPORTANT!! - set to `always` only if running SQL script
   jpa:
     properties:
       hibernate:
@@ -18,7 +18,7 @@ spring:
           batch_size: 10
         order_inserts: true
     hibernate:
-      ddl-auto: create # !!IMPORTANT!! - set to `create` only if recreate tables, this will delete all data
+      ddl-auto: none  # !!IMPORTANT!! - set to `create` only if recreate tables, this will delete all data
     show-sql: true
     defer-datasource-initialization: true # set to `true` is a fix that will recreate table and run SQL script
   servlet:
